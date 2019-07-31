@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Casa Cultural Amón</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href="../vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="../vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+    <!-- PNotify -->
+    <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body onload="fun()" class="nav-md">
+<div id="navigation"></div>
+<div class="container body">
+    <div class="main_container">
+
+        <!-- page content -->
+        <div class="left_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Administradores</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Eliminar Administrador</h2>
+                                <div class="clearfix"></div>
+                            </div>
+							
+                            <form class="form-horizontal form-label-left">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Administradores</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <table id="tabla-admin"
+                                                   class="table table-striped table-bordered bulk_action">
+                                                <thead>
+                                                <tr>
+                                                    <th>Cedula</th>
+                                                    <th>Nombre</th>
+                                                    <th>Tipo de Administrador</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Eliminar Administrador</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Realmente desea eliminar el administrador <b><span
+                                                        id="adminNombre"></span></b>?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary"
+                                                        data-dismiss="modal">Cancelar
+                                                </button>
+                                                <button id="desactivarAdmin" type="button" class="btn btn-danger">
+                                                    Eliminar
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="cursosList" name="cursosList" value="montana"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Casa Cultural Amón
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+</div>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+
+<!-- bootstrap-datetimepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+
+
+<script>
+    
+    $(document).ready(function(){
+        $('.ui-pnotify').remove();
+        
+        $('#tabla-admin').DataTable({
+            "ajax" : "Controller/obtener_administradores.php",
+            "columns": [
+                        {"data": "cedula"},
+                        {"data": "nombre"},
+                        {"data": "tipoAdministrador"},
+                        {"data": "Accion"}
+                    ],
+            "columnDefs": [{
+                "targets": -1,
+                "data": null,
+                "defaultContent": '<button id="cerrar" onclick="mostrarModalCerrar(this)" type="button" class="btn btn-danger">Eliminar</button>'
+            }],
+            "language": {
+                "decimal": "",
+                "emptyTable": "NO HAY ADMINISTRADORES DISPONIBLES",
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                "infoFiltered": "(Filtrado de _MAX_ entradas totales)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "NO HAY ADMINISTRADORES DISPONIBLES",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+             "createdRow": function(row, data) {
+                        $(row).attr('id', "admin-" + data.idAdministrador + "-" + data.nombre); 
+            }
+        
+        });
+            
+    });
+        
+  
+
+    function updateTable() {
+        $('#tabla-admin').DataTable().ajax.reload( null, false );
+    }
+
+    function mostrarModalCerrar(button) {
+
+        let parentID = $(button).parent().parent().attr('id').split("-");
+
+        $(button).attr("data-toggle", "modal");
+        $(button).attr("data-target", ".bs-example-modal-sm");
+
+        $("#adminNombre").html(parentID[2]);
+        $("#desactivarAdmin").val(parentID[1]);
+
+
+    }
+
+    $("#desactivarAdmin").on("click", function () {
+        desactivarAdmin($("#desactivarAdmin").val());
+    });
+
+    function desactivarAdmin(id) {
+
+        $("#desactivarAdmin").attr("data-dismiss", "modal");
+        $.ajax({
+            type: 'POST',
+            url: 'Controller/desactivar_administrador.php',
+            data: {idAdministrador: id},
+            dataType: 'JSON',
+
+            success: function (result) {
+                if (result === 1) {
+                    let nS = new PNotify({
+                        title: 'Administrador Eliminado',
+                        text: 'El administrador se ha eliminado exitosamente',
+                        type: 'success',
+                        styling: 'bootstrap3',
+                        sound: false
+                    });
+
+                    nS.get().click(function () {
+                        nS.remove();
+                    });
+
+                    updateTable();
+
+                } else {
+                    let nE = new PNotify({
+                        title: 'Error',
+                        text: 'El administrador no se ha podido eliminar, intente nuevamente',
+                        type: 'error',
+                        styling: 'bootstrap3',
+                        sound: false
+                    });
+
+                    nE.get().click(function () {
+                        nE.remove();
+                    });
+
+                    updateTable();
+                }
+            }
+        });
+    }
+
+    function fun(){
+        $.ajax({
+        		  url:   'Controller/obtener_tipo_usuario.php',
+        		  type:  'GET',
+        		  success:  function(response) {
+        		    if(response == "Normal"){
+                         $('#navigation').load('menu.html');
+        		    }else if(response == "Editor"){
+        		         $('#navigation').load('menuAsistenteEditor.html');
+        		    }else if(response == "Gestor"){
+        		         $('#navigation').load('menuAsistenteGestor.html');
+        		    }else if(response == "Super"){
+        		         $('#navigation').load('menuAdmin.html');
+        		    }
+        		  }
+            });	
+    }
+
+</script>
+
+<!-- iCheck -->
+<script src="../vendors/iCheck/icheck.min.js"></script>
+<!-- PNotify -->
+<script src="../vendors/pnotify/dist/pnotify.js"></script>
+<script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
+<!-- Datatables -->
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+</body>
+</html>

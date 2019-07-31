@@ -1,0 +1,53 @@
+#editor_content {
+    min-height: 700px;
+}
+
+#editor {
+    width: 100%;
+    height: 700px;
+}
+
+
+
+.selectize-control.multi .selectize-input > div {
+    background: #2A3F54;
+    color: #FFFFFF;
+}
+
+.selectize-control.plugin-remove_button [data-value] .label {
+    font-size: 16px;
+    color: #2A3F54;
+    position: relative;
+
+
+}
+
+
+.selectize-control.plugin-remove_button [data-value] .caption {
+    font-size: 10px;
+    color: #2A3F54;
+    background: transparent;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+
+
+.selectize-control.plugin-remove_button [data-value] {
+    height: 40px;
+    padding: 5px;
+}
+
+.selectize-control.multi .selectize-input > div {
+    height: 24px;
+}
+
+.selectize-control.plugin-remove_button [data-value]:hover{
+
+    background: #73879C;
+}
+
+.selectize-dropdown [data-selectable].active {
+    background: #73879C;
+}

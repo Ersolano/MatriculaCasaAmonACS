@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Matricula Pendiente</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+<body onload="fun()" class="nav-md">
+<div id="navigation"></div>
+<div class="container body">
+    <div class="main_container">
+        <div class="left_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Estado de Matrícula</h3>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+
+                                    <form class="form-horizontal form-label-left" novalidate id="form-usuario"
+                                          action="" method="POST">
+
+                                        <span class="section">Información</span>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Matriculas Pendientes</label>
+
+                                            <div id="divCombo" class="col-md-6 col-sm-6 col-xs-12">
+                                                <select onchange="actualizar()" id="combo" class="form-control">
+                                                  <option value="">Cargando ...</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="nombre">Nombre </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="nombre" class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" name="nombre"
+                                                       value=""
+                                                       disabled
+                                                       required="required"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="apellido1">Primer Apellido </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="apellido1"
+                                                       class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" name="apellido1"
+                                                       required="required"
+                                                       value=""
+                                                       disabled
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="curso">Cédula </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="cedula"
+                                                       class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" name="cedula"
+                                                       required="required"
+                                                       value=""
+                                                       disabled
+                                                       type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombreCurso">Nombre del curso </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="curso" class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" name="curso"
+                                                       required="required"
+                                                       value=""
+                                                       disabled
+                                                       type="text">
+                                            </div>
+                                        </div>
+
+        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="telefono">Número de comprobante</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="comprobante" name="comprobante"
+                                                       required="required"
+                                                       disabled
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        
+                                        <iframe id="my_iframe" style="display:none;"></iframe>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="telefono">Descargar comprobante</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                 <input type="Button" onclick="ver()" id="vcomprobante" name="dcomprobante"
+                                                       required="required"
+                                                       value="Ver"
+                                                       class="">
+                                                <input type="Button" onclick="descargar()" id="dcomprobante" name="dcomprobante"
+                                                       required="required"
+                                                       value="Descargar"
+                                                       class="">
+                                            </div>
+                                        </div>
+	
+					<div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado a cambiar</label>
+
+                                            <div id="divComboEstado" class="col-md-6 col-sm-6 col-xs-12">
+                                                <select class="form-control" id="comboEstado">
+                                                  <option value="Aceptado">Aceptado</option>
+						  <option value="Rechazado">Rechazado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+					<div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="telefono">Comentario <span
+                                                    class="required">(Opcional)</span></label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <textarea type="text" id="comentario" name="comentario"
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-md-offset-3">
+                                                <button id="cancel" type="submit" class="btn btn-primary">
+                                                    Cancelar
+                                                </button>
+                                                <button id="send" onclick="update()" type="submit" class="btn btn-success">
+                                                    Enviar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Casa Cultural Amón
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+</div>
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- validator -->
+<script src="../vendors/validator/validator.js"></script>
+
+
+<!-- bootstrap-daterangepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap-datetimepicker -->
+<script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<!-- jquery.inputmask -->
+<script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+
+
+<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+
+<script>
+    var direcc = "";
+	function fun(){
+	    $.ajax({
+        		  url:   'Controller/obtener_tipo_usuario.php',
+        		  type:  'GET',
+        		  success:  function(response) {
+        		    if(response == "Normal"){
+                         $('#navigation').load('menu.html');
+        		    }else if(response == "Editor"){
+        		         $('#navigation').load('menuAsistenteEditor.html');
+        		    }else if(response == "Gestor"){
+        		         $('#navigation').load('menuAsistenteGestor.html');
+        		    }else if(response == "Super"){
+        		         $('#navigation').load('menuAdmin.html');
+        		    }
+        		  }
+            });	
+		$.ajax({
+		    type:'GET', 
+		    url: 'Controller/obtener_usuariosMatricula.php',
+		    success:function(data){
+		        document.getElementById("divCombo").innerHTML = data;
+			actualizar($('#combo').val());
+		   },
+		   error:function(data){
+		    alert("Error");
+		   }
+		 });
+	    }
+
+	function actualizar(){
+	    document.getElementById("nombre").value = "Cargando ...";
+		document.getElementById("apellido1").value = "Cargando ...";
+		document.getElementById("cedula").value = "Cargando ...";
+		document.getElementById("curso").value = "Cargando ...";
+		document.getElementById("comprobante").value = "Cargando ...";
+		var parametros = {
+               		"id" : $('#combo').val()
+		};
+		$.ajax({
+		        data:  parametros,
+		        url:   'Controller/obtener_usuariosMat.php',
+		        type:  'POST',
+		        success:  function (response) {
+				if(response == "Error"){
+					alert("Error");				
+				}else{
+					var lista = response.split("$");
+				    document.getElementById("nombre").value = lista[0];
+					document.getElementById("apellido1").value = lista[1];
+					document.getElementById("cedula").value = lista[2];
+					document.getElementById("curso").value = lista[3];
+					document.getElementById("comprobante").value = lista[5];
+					direcc = lista[6];
+					if(direcc == 0){
+					    document.getElementById("vcomprobante").disabled = true;
+					    document.getElementById("dcomprobante").disabled = true;
+					}else{
+					    document.getElementById("vcomprobante").disabled = false;
+					    document.getElementById("dcomprobante").disabled = false;
+					}
+				}
+		        }
+		});	
+	}
+
+	function update(){
+		var parametros = {
+               		"id" : $('#combo').val(),
+			"estado" : $('#comboEstado').val(),
+			"comentario" : $('#comentario').val()
+		};
+		$.ajax({
+		        data:  parametros,
+		        url:   'Controller/actualizar_matricula.php',
+		        type:  'POST',
+		        success:  function (response) {
+				
+		        }
+		});	
+	}
+	
+	function ver(){
+	   var win = window.open(direcc, '_blank');
+        win.focus();
+	}
+	
+	function descargar(){
+	    var link = document.createElement("a");
+        link.download = "Comprobante-"+$('#nombre').val()+"-"+$('#apellido1').val()+"-"+$('#curso').val();
+        link.href = direcc;
+        link.click();
+	}
+
+	
+ 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Meta, title, CSS, favicons, etc. -->
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <title>Matricular</title>
+
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- NProgress -->
+
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Dropzone.js -->
+
+    <link href="../vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+</head>
+
+
+
+<body class="nav-md">
+
+<div class="container body">
+
+    <div class="main_container">
+
+        <div class="left_col" role="main">
+
+            <div class="">
+
+                <div class="page-title">
+
+                    <div class="title_left">
+
+                        <h3>Matricular</h3>
+
+                    </div>
+
+
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <div class="x_panel">
+
+                                <div class="x_content">
+
+
+
+                                    <form class="form-horizontal form-label-left" novalidate id="form-usuario"
+
+                                          action="Controller/editar_usuario.php" method="POST">
+
+
+
+                                        <span class="section">Datos para la matrícula</span>
+
+ 
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Cursos<span
+
+                                                    class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                  <select class="select2_group form-control" id="cursos">
+                                    
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                              
+                                    <!-- <optgroup label="Pacific Time Zone"> para poner secciones en el combo-->
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                    <optgroup label="Mountain Time Zone">
+                                      <option value="AZ">Arizona</option>
+                                      <option value="CO">Colorado</option>
+                                      <option value="ID">Idaho</option>
+                                      <option value="MT">Montana</option>
+                                      <option value="NE">Nebraska</option>
+                                      <option value="NM">New Mexico</option>
+                                      <option value="ND">North Dakota</option>
+                                      <option value="UT">Utah</option>
+                                      <option value="WY">Wyoming</option>
+                                    </optgroup>
+                                   
+                                  </select>
+                                </div>
+                              </div>
+
+                                        <div class="item form-group">
+
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Cédula <span
+
+                                                    class="required">*</span></label>
+
+
+
+                                            <div class="col-md-4 col-sm-4 col-xs-9">
+
+                                                <input type="text" class="form-control" id="cedula" name="cedula"
+
+                                                       value="">
+
+                                            </div>
+
+
+
+
+
+                                            <!--<div class="col-md-2 col-sm-1 col-xs-">-->
+
+
+
+                                            <!--</div>-->
+
+
+
+                                            <button id="boton_obtener" value="Obtener" class=" col-md-1 col-sm-1 col-xs-2 btn btn-success btn">
+
+                                                Obtener
+
+                                            </button>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="item form-group">
+
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+
+                                                   for="nombre">Nombre <span class="required">*</span></label>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                <input id="nombre" class="form-control col-md-7 col-xs-12"
+
+                                                       data-validate-length-range="6" name="nombre"
+
+                                                       value=""
+
+                                                       disabled
+
+                                                       required="required"
+
+                                                       type="text">
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+                                        <div class="item form-group">
+
+<div class="">
+
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Dropzone multiple file uploader</h2>
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+                    <form action="form_upload.html" class="dropzone"></form>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                                        </div>
+</div>
+
+       
+
+                                        <div class="ln_solid"></div>
+
+                                        <div class="form-group">
+
+                                            <div class="col-md-6 col-md-offset-3">
+
+                                                <button id="send" type="submit" class="btn btn-success" disabled>
+
+                                                    Matricular
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                        <div class="item form-group">
+
+<div class="">
+
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Dropzone multiple file uploader</h2>
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+                    <form action="form_upload.html" class="dropzone"></form>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                                        </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- /page content -->
+
+
+
+            <!-- footer content -->
+
+            <footer>
+
+                <div class="pull-right">
+
+                    Casa Cultural Amón
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </footer>
+
+            <!-- /footer content -->
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<!-- jQuery -->
+
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- FastClick -->
+
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+
+<!-- NProgress -->
+
+<script src="../vendors/nprogress/nprogress.js"></script>
+
+<!-- validator -->
+
+<script src="../vendors/validator/validator.js"></script>
+
+<!-- bootstrap-daterangepicker -->
+
+<script src="../vendors/moment/min/moment.min.js"></script>
+
+<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<!-- bootstrap-datetimepicker -->
+
+<script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- jquery.inputmask -->
+
+<script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+
+<!-- Dropzone.js -->
+<script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+
+<script src="../build/js/custom.min.js"></script>
+
+
+<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+
+<script>
+
+    $('#myDatepicker').datetimepicker();
+
+
+
+    $('#myDatepicker2').datetimepicker({
+
+        format: 'DD.MM.YYYY'
+
+    });
+
+
+
+    $('#myDatepicker3').datetimepicker({
+
+        format: 'hh:mm A'
+
+    });
+
+
+
+    $('#myDatepicker4').datetimepicker({
+
+        ignoreReadonly: true,
+
+        allowInputToggle: true
+
+    });
+
+
+
+    $('#datetimepicker6').datetimepicker();
+
+
+
+    $('#datetimepicker7').datetimepicker({
+
+        useCurrent: false
+
+    });
+
+
+
+    $("#datetimepicker6").on("dp.change", function (e) {
+
+        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+
+    });
+
+
+
+    $("#datetimepicker7").on("dp.change", function (e) {
+
+        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+
+    });
+
+</script>
+
+
+
+<script>
+
+
+
+    $(function () {
+
+
+
+        $(document).ready( () => {
+
+            $(':input[type="submit"]').prop('disabled', true);
+
+            $(':input[type="text"], :input[type="email"]').val("")
+      $.ajax({
+          url:'Controller/obtener_cursos.php',
+          type:'POST',
+          data: $('form').serialize(),
+          dataType: 'json',
+          success: function(json) {
+
+              $.each(json, function(i, value) {
+                  $('#cursos')
+                        .append($('<option></option>', {text:value}))
+                        .attr('value', text);
+              });
+          }
+        });
+
+        });
+
+
+
+        $(document).on('keyup keypress', 'form input[type="text"]', function(e) {
+
+            if(e.keyCode === 13) {
+
+                e.preventDefault();
+
+                return false;
+
+            }
+
+        });
+
+
+
+        $('#boton_obtener').bind('click', function (event) {
+
+
+
+            event.preventDefault();
+
+
+
+            $.ajax({
+
+                type: 'POST',
+
+                url: 'Controller/obtener_usuario_ced.php',
+
+                data: $('form').serialize(),
+
+                dataType: "json",
+
+                success: function (result) {
+
+                    let user = result[0];
+
+
+
+                    if(result !== 0) {
+
+
+
+                        $(':input[type="text"], :input[type="email"]').prop('disabled', false);
+
+                        $('#nacimiento').prop('disabled', true);
+
+                        $("#cedula").prop("readonly", true);
+
+
+
+                        $('input[type="text"], input[type="text"]').keyup(function () {
+
+                            $(':input[type="submit"]').prop('disabled', false);
+
+
+
+                        });
+
+
+
+                        $('input[type="text"], input[type="email"]').keydown(function () {
+
+                            $(':input[type="submit"]').prop('disabled', false);
+
+
+
+                        });
+
+
+
+                        $('#nombre').val(user.nombre);
+
+                        $('#apellido1').val(user.primer_apellido);
+
+                        $('#apellido2').val(user.segundo_apellido);
+
+                        $('#nacionalidad').val(user.nacionalidad);
+
+                        $('#email').val(user.correo);
+
+                        $('#nacimiento').val(user.fecha_nacimiento);
+
+                        $('#telefono').val(user.telefono);
+
+                    }
+
+
+
+                }
+
+            });
+
+
+
+        });
+
+    });
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

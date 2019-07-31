@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Casa Cultural Amón</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href="../vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="../vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- PNotify -->
+    <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+
+    <!-- Email Editor-->
+    <script src="https://editor.unlayer.com/embed.js"></script>
+
+    <!-- Selectize -->
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"/>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap2.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sifter/0.5.3/sifter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microplugin/0.0.3/microplugin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/selectize.js"></script>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body class="nav-md" onload = "fun()">
+<div id="navigation"></div>
+<div class="container body">
+    <div class="main_container">
+
+        <!-- page content -->
+        <div class="left_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Enviar Información</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Informaciones
+                                    <small>Seleccione los remitentes</small>
+                                </h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br/>
+                                <form data-parsley-validate class="form-horizontal form-label-left">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                               for="subject">Asunto
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <input type="text" id="subject" name="subject"
+                                                   placeholder=""
+                                                   value=""
+                                                   class="form-control col-md-7 col-xs-12">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                               for="send-to">Enviar a
+                                        </label>
+                                        <div id="send-to" class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="checkbox-todos" type="checkbox" class="flat" value="4"
+                                                           name="iCheck"> Todos los
+                                                    usuarios
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="checkbox-administradores" value="1" type="checkbox"
+                                                           class="flat"
+                                                           name="iCheck"> Administradores
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="checkbox-profesores" name="tipo" value="2"
+                                                           type="checkbox" class="flat"> Profesores
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="checkbox-estudiantes" value="3" type="checkbox"
+                                                           class="flat"
+                                                           name="iCheck"> Estudiantes matriculados
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                               for="select-to">
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <select id="select-to" class="contacts"
+                                                    placeholder="Enviar a..."></select>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <form class="form-horizontal form-label-left">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Editor de correo</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content" id="editor_content">
+                                            <div id="editor"></div>
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 text-right">
+                                                    <button type="submit" class="btn btn-primary">Cancelar</button>
+                                                    <button id="send" type="submit" class="btn btn-success">Enviar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Cerrar Curso</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Realmente desea cerrar el curso <b><span
+                                                        id="cursoNombre"></span></b>?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary"
+                                                        data-dismiss="modal">Cancelar
+                                                </button>
+                                                <button id="cerrarCurso" type="button" class="btn btn-danger">
+                                                    Cerrar Curso
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Casa Cultural Amón
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+</div>
+
+
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+
+<!-- bootstrap-datetimepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Custom Theme Scripts -->
+<!--<script src="../build/js/custom.min.js"></script>-->
+
+<!-- iCheck -->
+<script src="../vendors/iCheck/icheck.min.js"></script>
+<!-- PNotify -->
+<script src="../vendors/pnotify/dist/pnotify.js"></script>
+<script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
+<!--[if lt IE 9]>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script><![endif]-->
+<!-- Switchery -->
+<script src="../vendors/switchery/dist/switchery.min.js"></script>
+<!-- Select2 -->
+<script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+
+
+<script>
+    let jq14 = jQuery.noConflict(true);
+
+    let new_add = true;
+
+    let admins = [];
+    let profesores = [];
+    let todos = [];
+    let matriculados = [];
+
+    $(function () {
+
+        $('.ui-pnotify').remove();
+        // <select id="select-to"></select>
+
+        unlayer.init({
+            id: 'editor',
+            projectId: 1653,
+            templateId: "4696",
+            displayMode: 'email',
+            locale: 'es-ES',
+            mergeTags: [
+                {name: "Nombre", value: "{{nombre}}"},
+                {name: "Correo", value: "{{correo}}"},
+                {name: "Primer Apellido", value: "{{primer_apellido}}"},
+                {name: "Segundo Apellido", value: "{{segundo_apellido}}"},
+                {name: "Año", value: "{{annio}}"}
+            ]
+        });
+
+        let REGEX_EMAIL = '([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@' +
+            '(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)';
+        let formatName = function (item) {
+            return $.trim((item.nombre || '') + ' ' + (item.primer_apellido || ''));
+        };
+        $('#select-to').selectize({
+            persist: false,
+            plugins: ['remove_button'],
+            maxItems: null,
+            valueField: 'correo',
+            labelField: 'nombre',
+            searchField: ['nombre', 'primer_apellido', 'segundo_apellido', 'correo'],
+            sortField: [
+                {field: 'nombre', direction: 'asc'},
+                {field: 'segundo_apellido', direction: 'asc'}
+            ],
+            options: [{correo: "atriculados", nombre: "LC_M", primer_apellido: ""}, {
+                correo: "dmins",
+                nombre: "LC_A"
+            }, {correo: "rofesores", nombre: "LC_P"}, {correo: "odos", nombre: "LC_T"}],
+            render: {
+                item: function (item, escape) {
+
+                    let nombre = formatName(item);
+                    if (nombre !== "LC_M" && nombre !== "LC_A" && nombre !== "LC_P" && nombre !== "LC_T") {
+                        return '<div>' +
+                            (nombre ? '<span class="name">' + escape(item.nombre) + " " + escape(item.primer_apellido) + ' -> </span>' : '') +
+                            (item.correo ? '<span class="email">' + escape(item.correo) + '</span>' : '') +
+                            '</div>';
+                    } else {
+                        return '<div>' +
+                            (nombre ? '<span class="name">' + escape(item.nombre) + '</span>' : '') +
+                            (item.correo ? '<span class="email">' + escape(item.correo) + '</span>' : '') +
+                            '</div>';
+                    }
+
+
+                },
+                option: function (item, escape) {
+                    let name = formatName(item);
+                    let label = name || item.correo;
+                    let caption = name ? item.correo : null;
+
+                    if (name !== "LC_M" && name !== "LC_A" && name !== "LC_P" && name !== "LC_T") {
+                        return '<div ' + hidden() + ' class="' + status() + '">' +
+                            '<span class="label">' + escape(label) + '</span>' +
+                            (caption ? '<span class="caption">' + escape(caption) + '</span>' : '') +
+                            '</div>';
+                    } else {
+                        return '<div hidden></div>';
+                    }
+                }
+            },
+            createFilter: function (input) {
+                let regexpA = new RegExp('^' + REGEX_EMAIL + '$', 'i');
+                let regexpB = new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i');
+                return regexpA.test(input) || regexpB.test(input);
+            },
+            create: function (input) {
+
+                if ((new RegExp('^' + REGEX_EMAIL + '$', 'i')).test(input)) {
+                    return {correo: input};
+                }
+                let match = input.match(new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i'));
+                if (match) {
+                    let name = $.trim(match[1]);
+                    let pos_space = name.indexOf(' ');
+                    let first_name = name.substring(0, pos_space);
+                    let last_name = name.substring(pos_space + 1);
+                    return {
+                        nombre: match[2],
+                        primer_apellido: first_name,
+                        segundo_apellido: last_name
+                    };
+                }
+
+
+                alert('Invalid email address.');
+                return false;
+            }
+        });
+
+        let selectize = $("#select-to")[0].selectize;
+
+        selectize.on("item_remove", function (item) {
+            $(".disabled_option").each(function (index, element) {
+                $(element).removeAttr("hidden");
+                $(element).removeClass("disabled_option");
+                $(element).addClass("enabled_option");
+            });
+
+            if (item === "atriculados") {
+                $("#checkbox-estudiantes").prop("disabled", false);
+                $("#checkbox-estudiantes").prop("checked", false);
+            } else if (item === "rofesores") {
+                $("#checkbox-profesores").prop("disabled", false);
+                $("#checkbox-profesores").prop("checked", false);
+            } else if (item === "odos") {
+                $("#checkbox-todos").prop("disabled", false);
+                $("#checkbox-todos").prop("checked", false);
+                $("#checkbox-estudiantes").prop("disabled", false);
+                $("#checkbox-administradores").prop("disabled", false);
+                $("#checkbox-profesores").prop("disabled", false);
+            } else {
+                $("#checkbox-administradores").prop("disabled", false);
+                $("#checkbox-administradores").prop("checked", false);
+            }
+        });
+
+    });
+
+
+</script>
+
+
+<script>
+
+	function fun(){
+        $.ajax({
+        		  url:   'Controller/obtener_tipo_usuario.php',
+        		  type:  'GET',
+        		  success:  function(response) {
+        		    if(response == "Normal"){
+                         $('#navigation').load('menu.html');
+        		    }else if(response == "Editor"){
+        		         $('#navigation').load('menuAsistenteEditor.html');
+        		    }else if(response == "Gestor"){
+        		         $('#navigation').load('menuAsistenteGestor.html');
+        		    }else if(response == "Super"){
+        		         $('#navigation').load('menuAdmin.html');
+        		    }
+        		  }
+            });	
+    }
+
+    function hidden() {
+        return 'hidden';
+    }
+
+    function status() {
+        return 'disabled_option';
+    }
+
+    $("#checkbox-profesores, #checkbox-administradores, #checkbox-estudiantes, #checkbox-todos").change(function () {
+
+        let valueP = this.value;
+
+        if (valueP == 1) {
+            $("#checkbox-administradores").prop("disabled", true);
+        } else if (valueP == 2) {
+            $("#checkbox-profesores").prop("disabled", true);
+        } else if (valueP == 3) {
+            $("#checkbox-estudiantes").prop("disabled", true);
+        } else {
+            $("#checkbox-todos").prop("disabled", true);
+            $("#checkbox-estudiantes").prop("disabled", true);
+            $("#checkbox-profesores").prop("disabled", true);
+            $("#checkbox-administradores").prop("disabled", true);
+        }
+
+        $(".enabled_option").each(function (index, element) {
+            $(element).prop("hidden", "hidden");
+            $(element).addClass("disabled_option");
+            $(element).removeClass("enabled_option");
+        });
+
+        getEmails(valueP);
+
+    });
+
+
+    function getEmails(value) {
+        $.ajax({
+            type: 'POST',
+            url: 'Controller/obtener_correos_x_tipo_usuario.php',
+            dataType: 'JSON',
+            data: {'tipo': value},
+
+            success: function (result) {
+                let selectize = $("#select-to")[0].selectize;
+
+                result.forEach(function (value) {
+                    selectize.addOption(value);
+                });
+
+                switch (value) {
+                    case "1":
+                        admins = result.map(x => x);
+                        selectize.addItem('dmins');
+                        break;
+                    case "2":
+                        profesores = result.map(x => x);
+                        selectize.addItem('rofesores');
+                        break;
+                    case "3":
+                        matriculados = result.map(x => x);
+                        selectize.addItem('atriculados');
+                        break;
+                    case "4":
+                        todos = result.map(x => x);
+                        selectize.addItem('odos');
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
+    }
+
+
+    $("#send").click(async function (e) {
+        e.preventDefault();
+
+        let subject = $('#subject').val();
+
+        let items = $("#select-to")[0].selectize.items;
+
+        items = items.map(function (x) {
+            switch (x) {
+                case "dmins":
+                    x = admins;
+                    break;
+                case "odos":
+                    x = todos;
+                    break;
+                case "rofesores":
+                    x = profesores;
+                    break;
+                case "atriculados":
+                    x = matriculados;
+                    break;
+                default:
+                    break;
+            }
+
+            return x;
+        });
+
+
+        let merged = [].concat.apply([], items);
+
+        let tags = ["{{correo}}", "{{primer_apellido}}", "{{segundo_apellido}}", "{{annio}}"];
+        let punct = [",", ".", ";", "{"];
+        let tagReplace = [];
+
+        unlayer.exportHtml(function (data) {
+            // let test = data.html;
+            //
+            // tagReplace.map(function (x) {
+            //     let last = getLastChar(test, x);
+            //     return x = tags.map(function(y) {return y = punct.includes(last) ? "1" : "2";
+            //     });
+            // });
+
+
+            //console.log(tagReplace);
+
+            merged.forEach(function (user) {
+                let html = data.html;
+
+
+                 html = html.replace("{{nombre}}", user.nombre ? user.nombre + " " : "")
+                     .replace("{{primer_apellido}}", user.primer_apellido ? user.primer_apellido + " " : "")
+                     .replace("{{segundo_apellido}}", user.segundo_apellido ? user.segundo_apellido + " " : "")
+                     .replace("{{annio}}", new Date().getFullYear() + " ");
+
+                !user.nombre ? html = html.replace("{{correo}}", user ? user + " " : "") : html = html.replace("{{correo}}","");
+                
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'Controller/enviar_correo_informacion.php',
+                    data: {'to': user.nombre ? user.correo : user, 'message': html, 'subject': subject},
+                    success: function (result) {
+                        if (result !== -1) {
+                            let nS = new PNotify({
+                                title: 'Email enviado',
+                                text: 'El email se ha enviado exitosamente',
+                                type: 'success',
+                                styling: 'bootstrap3',
+                                sound: false
+                            });
+
+                            nS.get().click(function () {
+                                nS.remove();
+                            });
+                        } else {
+                            let nE = new PNotify({
+                                title: 'Email no enviado',
+                                text: 'El email no se ha enviado, intente nuevamente',
+                                type: 'error',
+                                styling: 'bootstrap3',
+                                sound: false
+                            });
+
+                            nE.get().click(function () {
+                                nE.remove();
+                            });
+
+                        }
+                    }
+                });
+            });
+
+        });
+    })
+    ;
+
+
+    function getPreviosChar(data, word) {
+        return data.substring(data.indexOf(word) - 1, data.indexOf(word));
+
+    }
+
+    function getLastChar(data, word) {
+        return data.substring((data.indexOf(word) + word.length), (data.indexOf(word) + word.length) + 1);
+    }
+
+
+</script>
+
+<!-- Editor-->
+<script>
+
+</script>
+
+
+</body>
+</html>

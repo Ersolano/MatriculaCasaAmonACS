@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Casa Cultural Amón</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- page content -->
+        <div class="left_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <!--<h3>Hola <span id="usuario"></span> | Editar de Profesor</h3>-->
+                        <h3>Editar de Profesor</h3>
+                    </div>
+
+
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <div class="x_title">
+                                    <h2>Información del Instructor
+                                        <small>Complete la información solicitada (Los campos marcados con * son requeridos)
+                                        </small>
+                                    </h2>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_contentx">
+
+
+
+                                    <form class="form-horizontal form-label-left" novalidate
+                                          action="Controller/editar_profesor.php" method="POST">
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Cédula <span
+                                                    class="required">*</span></label>
+
+                                            <div class="col-md-4 col-sm-4 col-xs-9">
+                                                <input type="number" class="form-control" id="cedula" name="cedula"
+                                                       value="">
+                                            </div>
+
+
+                                            <!--<div class="col-md-2 col-sm-1 col-xs-">-->
+
+                                            <!--</div>-->
+
+                                            <button id="boton_obtener" value="Obtener" class=" col-md-1 col-sm-1 col-xs-2 btn btn-success btn">
+                                                Obtener
+                                            </button>
+
+
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre
+                                                <span
+                                                        class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="nombre" class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" data-validate-words="1"
+                                                       name="nombre"
+                                                       placeholder="Ejemplo: María José" required="required" type="text"
+                                                       minlength="2" maxlength="70">
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido1">Primer
+                                                Apellido <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="apellido1" class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" data-validate-words="1"
+                                                       name="apellido1" placeholder="Ejemplo: Monestel"
+                                                       required="required"
+                                                       type="text" minlength="2" maxlength="70">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido2">Segundo
+                                                Apellido <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="apellido2" class="form-control col-md-7 col-xs-12"
+                                                       data-validate-length-range="6" data-validate-words="1"
+                                                       name="apellido2" placeholder="Ejemplo: Mora" required="required"
+                                                       type="text" minlength="2" maxlength="70">
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="nacimiento">Fecha
+                                                de Nacimiento <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class='input-group date' id='myDatepicker2'>
+                                                    <input id="nacimiento" name="nacimiento" type='text'
+                                                           placeholder="Ejemplo: 31-12-1950" class="form-control"/>
+                                                    <span class="input-group-addon">
+		                               <span class="glyphicon glyphicon-calendar"></span>
+		                            </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="x_title">
+                                            <h2>Información de Contacto</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="number" id="telefono" name="telefono"
+                                                       placeholder="Ejemplo: 88888888" required="required"
+                                                       data-validate-length-range="5,20"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Otro
+                                                teléfono
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="number" id="telefono2" name="telefono2"
+                                                       placeholder="Ejemplo: 88888888"
+                                                       data-validate-length-range="5,20"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Correo
+                                                Electrónico <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="email" id="email" name="email"
+                                                       placeholder="Ejemplo: correo@prueba.com" required="required"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirmación
+                                                de Correo Electrónico <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="email" id="email2" name="confirm_email"
+                                                       placeholder="Escriba su correo de nuevo por favor"
+                                                       data-validate-linked="email" required="required"
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido2">Dirección<span
+                                                    class="required">*</span>
+                                            </label>
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <select name="provincia" id="provincia" class="form-control" required>
+                                                    <option value="">Provincia</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <select name="canton" id="canton" class="form-control" required>
+                                                    <option value="">Cantón</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <select name="distrito" id="distrito" class="form-control" required>
+                                                    <option value="">Distrito</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <textarea name="señas" id="sennas" class="form-control" rows="3" placeholder="Señas"
+                                                          style="overflow:auto;resize:none"></textarea>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="x_title">
+                                            <h2>Información de Facturación</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="identificaion_tributaria">Identificación
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="identificaion_tributaria"
+                                                       name="identificaion_tributaria"
+                                                       placeholder="Ejemplo: 12345678"
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12">
+                                                <span><input type="checkbox"
+                                                             name="igual_que_arriba_it"
+                                                             id="igual_que_arriba_it"
+                                                             value="igual_que_arriba_it"/> Igual que arriba</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Nombre
+                                                completo
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="nombre_completo" name="nombre_completo"
+                                                       placeholder="Ejemplo: Maria José Monestel..."
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12">
+                                                <span><input type="checkbox"
+                                                             name="igual_que_arriba_nc"
+                                                             id="igual_que_arriba_nc"
+                                                             value="igual_que_arriba_nc"/> Igual que arriba</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email"> y/o Razón Social
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="razon_social" name="razon_social"
+                                                       placeholder="Ejemplo: Empresa SA de CV"
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="x_title">
+                                            <h2>Información de Tributaria</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado
+                                                Tributario</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div id="estado_tributario" class="btn-group" data-toggle="buttons">
+                                                    <label id="estado_tributario_lbl_si" class="btn btn-primary" data-toggle-class="btn-primary"
+                                                           data-toggle-passive-class="btn-default">
+                                                        <input id="estado_tributario_si" type="radio"
+                                                               name="estado_tributario" value="1"> Inscrito
+                                                    </label>
+                                                    <label id="estado_tributario_lbl_no" class="btn btn-default" data-toggle-class="btn-primary"
+                                                           data-toggle-passive-class="btn-default">
+                                                        <input id="estado_tributario_no" type="radio"
+                                                               name="estado_tributario" value="0"> No inscrito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="actividad">Nombre
+                                                de la actividad
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="actividad" name="actividad"
+                                                       placeholder=""
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                   for="codigo_actividad">Código de la actividad
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="codigo_actividad" name="codigo_actividad"
+                                                       placeholder=""
+                                                       value=""
+                                                       class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                        <input id="id_profesor" name="id_profesor" type="hidden" value="">
+
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-md-offset-3">
+                                                <button type="submit" class="btn btn-primary">Cancelar</button>
+                                                <button id="send" type="submit" class="btn btn-success">Editar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Casa Cultural Amón
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- validator -->
+<script src="../vendors/validator/validator.js"></script>
+<!-- bootstrap-datetimepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+<script>
+
+    $('#myDatepicker2').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+
+</script>
+
+<script>
+
+    $(function () {
+        $('#actividad').prop('disabled', true);
+        $('#codigo_actividad').prop('disabled', true);
+        //$("#canton").prop("disabled", true);
+        //$("#distrito").prop("disabled", true);
+    });
+
+    // Populate Address Fields
+
+    $.ajax({
+        type: 'GET',
+        url: 'js/CR.json',
+        dataType: 'JSON',
+
+        success: function (result) {
+            $.each(result.provincias, function (key, value) {
+
+                $('#provincia').append('<option value="'+value.title.split(' ').join('_')+'"id=' + value.title.split(' ').join('_') + " >" + value.title + '</option>');
+                $.each(value.cantones, function (key2, value2) {
+                    $('#canton').append('<option value="'+value2.title.split(' ').join('_')+'" id=' + value.title.split(' ').join('_') + '>' + value2.title + '</option>');
+                    $.each(value2.distritos, function (key3, value3) {
+                        $('#distrito').append('<option value="'+value3.title.split(' ').join('_')+'" id=' + value2.title.split(' ').join('_') + '>' + value3.title + '</option>');
+                    });
+                });
+
+            });
+        }
+    });
+
+    function updateCanton() {
+
+        let value = $("#provincia option:selected").attr('id');
+
+        $('select#canton>option').each(function () {
+            let text = $(this)[0].id;
+
+            if (text.indexOf(value) !== -1) {
+                $(this).show();
+                $(this).prop('selected', true);
+            }
+            else {
+                $(this).hide();
+            }
+        });
+
+        $('#canton option').each(function () {
+            if ($(this).css('display') !== 'none') {
+                $("#canton").prop("disabled", false);
+                $("#distrito").prop("disabled", false);
+                $(this).prop("selected", true).change();
+                return false;
+            }
+        });
+    }
+
+    function updateDistrito() {
+
+        let value = $("#canton option:selected").text().split(' ').join('_');
+
+        $('select#distrito>option').each(function () {
+            let text = $(this)[0].id;
+            //console.log(text);
+
+
+            if (text.indexOf(value) !== -1) {
+                $(this).show();
+                $(this).prop('selected', true);
+            }
+            else {
+                $(this).hide();
+            }
+        });
+
+        $('#distrito option').each(function () {
+            if ($(this).css('display') !== 'none') {
+                $(this).prop("selected", true);
+                return false;
+            }
+        });
+    }
+
+    $('#provincia').change(function () {
+        let value = $("#provincia option:selected").attr('id');
+
+        updateCanton(value);
+
+        // $('select#canton>option').each(function () {
+        //     let text = $(this)[0].id;
+        //
+        //     if (text.indexOf(value) !== -1) {
+        //         $(this).show();
+        //         $(this).prop('selected', true);
+        //     }
+        //     else {
+        //         $(this).hide();
+        //     }
+        // });
+        //
+        // //$("#canton").val($("#target option:second").val()).change();
+        // $('#canton option').each(function () {
+        //     if ($(this).css('display') !== 'none') {
+        //         $("#canton").prop("disabled", false);
+        //         $("#distrito").prop("disabled", false);
+        //         $(this).prop("selected", true).change();
+        //         return false;
+        //     }
+        // });
+    });
+
+
+    $('#canton').change(function () {
+        let value = $("#canton option:selected").text().split(' ').join('_');
+
+        updateDistrito(value);
+    });
+
+
+    $("input[name='estado_tributario']").change(function () {
+            let radioValue = $("input[name='estado_tributario']:checked").val();
+
+            if (radioValue === "1") {
+                $('#actividad').prop('disabled', false);
+                $('#codigo_actividad').prop('disabled', false);
+            } else {
+                $('#actividad').prop('disabled', true).val("");
+                $('#codigo_actividad').prop('disabled', true).val("");
+            }
+        }
+    );
+
+
+    $('#identificacion').keyup(function (e) {
+        if (e.keyCode === 46 || e.keyCode === 8) {
+            $('#identificaion_tributaria').prop('readonly', false).val("");
+            $('#igual_que_arriba_it').prop('checked', false);
+        }
+    });
+
+    $('#nombre, #apellido1,#apellido2').keyup(function (e) {
+
+        if (e.keyCode === 46 || e.keyCode === 8) {
+            console.log("entre")
+            if ($("#nombre").val().replace(/^\s+|\s+$/g, "").length !== 0 && $("#apellido1").val().replace(/^\s+|\s+$/g, "").length !== 0 && $("#apellido2").val().replace(/^\s+|\s+$/g, "").length !== 0) {
+                console.log("entre2")
+                $('#nombre_completo').prop('readonly', false).val("");
+                $('#igual_que_arriba_nc').prop('checked', false);
+            }
+        }
+    });
+
+    $("#igual_que_arriba_it").change(function () {
+        if ($("#igual_que_arriba_it").is(':checked')) {
+
+            if ($("#cedula").val().replace(/^\s+|\s+$/g, "").length !== 0) {
+                $("#identificaion_tributaria").val($("#cedula").val()).prop('readonly', true);
+            } else {
+                $("#identificacion").focus();
+                $('#igual_que_arriba_it').prop('checked', false);
+            }
+
+        } else {
+            $('#identificaion_tributaria').prop('readonly', false).val("");
+        }
+    });
+
+    $("#igual_que_arriba_nc").change(function () {
+        if ($("#igual_que_arriba_nc").is(':checked')) {
+
+            if ($("#nombre").val().replace(/^\s+|\s+$/g, "").length !== 0 && $("#apellido1").val().replace(/^\s+|\s+$/g, "").length !== 0 && $("#apellido2").val().replace(/^\s+|\s+$/g, "").length !== 0) {
+                $("#nombre_completo").val($("#nombre").val() + " " + $("#apellido1").val() + " " + $("#apellido2").val()).prop('readonly', true);
+            } else {
+                $("#nombre").focus();
+                $("#apellido1").focus();
+                $("#apellido2").focus();
+                $('#igual_que_arriba_nc').prop('checked', false);
+            }
+        } else {
+            $('#nombre_completo').prop('readonly', false).val("");
+        }
+    })
+
+
+    $('#boton_obtener').bind('click', function (event) {
+
+        event.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: 'Controller/obtener_profesor_x_cedula.php',
+            data: $('form').serialize(),
+            dataType: "json",
+            success: function (result) {
+
+                let user = result[0];
+
+                if(result !== 0) {
+
+                    $(':input[type="text"], :input[type="email"]').prop('disabled', false);
+                    $('#nacimiento').prop('disabled', true);
+                    $("#cedula").prop("readonly", true);
+
+                    $('input[type="text"], input[type="text"]').keyup(function () {
+                        $(':input[type="submit"]').prop('disabled', false);
+
+                    });
+
+                    $('input[type="text"], input[type="email"]').keydown(function () {
+                        $(':input[type="submit"]').prop('disabled', false);
+
+                    });
+
+                    $('#nombre').val(user.nombre);
+                    $('#apellido1').val(user.primer_apellido);
+                    $('#apellido2').val(user.segundo_apellido);
+                    $('#nacionalidad').val(user.nacionalidad);
+                    $('#email').val(user.correo);
+                    $('#email2').val(user.correo);
+                    $('#nacimiento').val(user.fecha_nacimiento);
+                    $('#telefono').val(user.telefono);
+                    $('#sennas').val(user.sennas);
+                    $('#telefono2').val(user.telefono2);
+                    $('#actividad').val(user.nombre_actividad);
+                    $('#codigo_actividad').val(user.codigo_actividad);
+                    $('#nombre_completo').val(user.fnombre);
+                    $('#identificaion_tributaria').val(user.identificacion);
+                    $('#razon_social').val(user.razon_social);
+                    $('#id_profesor').val(user.idProfesor);
+
+
+                    $('#provincia').val(user.provincia.split(' ').join('_')).prop('selected', true);
+                    $('#canton').val(user.canton.split(' ').join('_')).prop('selected', true);
+                    $('#distrito').val(user.distrito.split(' ').join('_')).prop('selected', true);
+
+
+
+                    //updateCanton();
+                    //updateDistrito();
+
+                    if (user.estado_tributario === "1") {
+                        $('#estado_tributario_lbl_si').addClass('active');
+                        $('#estado_tributario_si').prop('checked', true);
+                        $('#actividad').prop('disabled', false);
+                        $('#codigo_actividad').prop('disabled', false);
+                    } else {
+                        $('#estado_tributario_lbl_no').addClass('active');
+                        $('#estado_tributario_no').prop('checked', true);
+                        $('#actividad').prop('disabled', true);
+                        $('#codigo_actividad').prop('disabled', true);
+                    }
+                }
+
+            }
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>

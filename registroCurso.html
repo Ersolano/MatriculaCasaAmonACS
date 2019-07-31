@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Casa Cultural Amón</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+<body onload="fun()" class="nav-md">
+<div id="navigation"></div>
+    <div class="container body">
+      <div class="main_container">
+     
+        <!-- page content -->
+        <div class="left_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Nuevo Curso</h3>
+              </div>
+
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Registro de Cursos</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate action="Controller/registrar_curso.php" method="POST">
+
+                      <p>Complete la información solicitada
+                      </p>
+                      <span class="section">Datos</span>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="nombre" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="nombre" placeholder="Ejemplo: Dibujo básico" required="required" type="text" minlength="2" maxlength="70">
+                        </div>
+                      </div>
+                      
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Horario<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="horario" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"  name="horario" placeholder="Miércoles 13:00-15:00" required="required" type="text">
+                        </div>
+                      </div>
+                      
+                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cupo<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="cupo" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="cupo" placeholder="Ejemplo: 20" required="required" type="number" minlength="1">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="materiales">Información del Curso<span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <!---<input id="materiales" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="materiales" placeholder="Ejemplo: Cuaderno de dibujo, lápiz de dibujo" required="required" type="textarea" minlength="2" maxlength="70">--->
+                          <textarea id="materiales" class="form-control col-md-7 col-xs-12" name="materiales" rows="10" cols="40" ></textarea>
+                        </div>
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button id="send" type="submit" class="btn btn-success">Registrar</button>
+                        </div>
+                      </div>
+                    </form>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Casa Cultural Amón
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+
+    <script>
+        function fun(){
+            $.ajax({
+        		  url:   'Controller/obtener_tipo_usuario.php',
+        		  type:  'GET',
+        		  success:  function(response) {
+        		    if(response == "Normal"){
+                         $('#navigation').load('menu.html');
+        		    }else if(response == "Editor"){
+        		         $('#navigation').load('menuAsistenteEditor.html');
+        		    }else if(response == "Gestor"){
+        		         $('#navigation').load('menuAsistenteGestor.html');
+        		    }else if(response == "Super"){
+        		         $('#navigation').load('menuAdmin.html');
+        		    }
+        		  }
+            });	
+        }
+    </script>
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
+	<!-- bootstrap-datetimepicker -->    
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+	
+  </body>
+</html>
